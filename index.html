@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Inventario</h1>
+        <div id="inventario">
+            <h2>Gli articoli disponibili sono:</h2>
+            <table id="tabella-inventario">
+                <thead>
+                    <tr>
+                        <th>Nome Articolo</th>
+                        <th>Acquisto</th>
+                        <th>Vendita</th>
+                        <th>Listino</th>
+                    </tr>
+                </thead>
+                <tbody id="articoli">
+                    <!-- Gli articoli saranno inseriti qui -->
+                </tbody>
+            </table>
+        </div>
+        <div id="azioni">
+            <h2>Vuoi aggiungere, rimuovere o cercare un articolo?</h2>
+            <select id="azione" onchange="eseguiAzione()">
+                <option value="">Seleziona un'azione</option>
+                <option value="aggiungere">Aggiungere</option>
+                <option value="rimuovere">Rimuovere</option>
+                <option value="cercare">Cercare</option>
+            </select>
+        </div>
+        <form id="form-articoli" style="display: none;" onsubmit="aggiungiArticolo(); return false;">
+            <h2>Inserisci i dettagli del prodotto:</h2>
+            <input type="text" id="nome-articolo" placeholder="Nome articolo">
+            <input type="number" id="prezzo-acquisto" placeholder="Prezzo di acquisto">
+            <input type="number" id="prezzo-vendita" placeholder="Prezzo di vendita">
+            <input type="number" id="prezzo-listino" placeholder="Prezzo di listino">
+            <button type="submit">Aggiungi</button>
+        </form>
+        <form id="form-rimozione" style="display: none;" onsubmit="rimuoviArticolo(); return false;">
+            <h2>Inserisci il nome dell'articolo da rimuovere:</h2>
+            <input type="text" id="nome-articolo-rimuovi" placeholder="Nome articolo">
+            <button type="submit">Rimuovi</button>
+        </form>
+        <form id="form-ricerca" style="display: none;" onsubmit="cercaArticolo(); return false;">
+            <h2>Inserisci il nome dell'articolo da cercare:</h2>
+            <input type="text" id="nome-articolo-ricerca" placeholder="Nome articolo">
+            <button type="submit">Cerca</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
